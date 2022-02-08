@@ -1,0 +1,11 @@
+# IDE files
+.vscode/
+.idea/
+
+node_modules/
+ganache-db/
+
+build/
+abi/
+
+.env
