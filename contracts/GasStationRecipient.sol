@@ -10,8 +10,8 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      */
     address private _gasStation;
 
-    function isGasStation(address addressToCheck) external view returns(bool) {
-        return _gasStation == addressToCheck;
+    function isOwnGasStation(address gasStation) external view returns(bool) {
+        return _gasStation == gasStation;
     }
 
     function gasStation() external view returns (address) {
