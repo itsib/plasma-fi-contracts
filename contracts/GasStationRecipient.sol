@@ -10,11 +10,11 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      */
     address private _gasStation;
 
-    function isGasStation(address addressToCheck) public view returns(bool) {
+    function isGasStation(address addressToCheck) external view returns(bool) {
         return _gasStation == addressToCheck;
     }
 
-    function gasStation() public virtual view returns (address) {
+    function gasStation() external view returns (address) {
         return _gasStation;
     }
 
@@ -28,7 +28,7 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      * otherwise, return `msg.sender`.
      * should be used in the contract anywhere instead of msg.sender
      */
-    function _msgSender() internal override virtual view returns (address ret) {
+    function _msgSender() internal view returns (address ret) {
         if (msg.data.length >= 20 && isGasStation(msg.sender)) {
             // At this point we know that the sender is a trusted forwarder,
             // so we trust that the last bytes of msg.data are the verified sender address.
@@ -48,7 +48,7 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      * otherwise (if the call was made directly and not through the forwarder), return `msg.data`
      * should be used in the contract instead of msg.data, where this difference matters.
      */
-    function _msgData() internal override virtual view returns (bytes calldata ret) {
+    function _msgData() internal view returns (bytes calldata ret) {
         if (msg.data.length >= 20 && isGasStation(msg.sender)) {
             return msg.data[0:msg.data.length-20];
         } else {

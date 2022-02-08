@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 
 interface IGasStationRecipient {
 
-    function isGasStation(address addressToCheck) public view returns(bool);
+    function isGasStation(address addressToCheck) external view returns(bool);
 
     function versionRecipient() external view returns (string memory);
 
