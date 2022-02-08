@@ -10,7 +10,7 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      */
     address private _gasStation;
 
-    function isGasStation(address addressToCheck) public virtual override view returns(bool) {
+    function isGasStation(address addressToCheck) public view returns(bool) {
         return _gasStation == addressToCheck;
     }
 
