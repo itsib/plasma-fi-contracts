@@ -1,6 +1,6 @@
 {
   "name": "@plasma-fi/gas-station-recipient",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "📄 A base contract to be inherited by any contract that want to receive relayed transactions",
   "author": "Sergey <itsib.su@gmail.com>",
   "license": "MIT",

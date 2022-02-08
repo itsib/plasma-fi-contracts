@@ -23,13 +23,14 @@ abstract contract GasStationRecipient is IGasStationRecipient {
     }
 
     /**
-     * return the sender of this call.
-     * if the call came through our trusted forwarder, return the original sender.
-     * otherwise, return `msg.sender`.
-     * should be used in the contract anywhere instead of msg.sender
-     */
+    * return the sender of this call.
+    * if the call came through our trusted forwarder, then the real sender is appended as the last 20 bytes
+    * of the msg.data.
+    * otherwise, return `msg.sender`
+    * should be used in the contract anywhere instead of msg.sender
+    */
     function _msgSender() internal view returns (address ret) {
-        if (msg.data.length >= 20 && isGasStation(msg.sender)) {
+        if (msg.data.length >= 20 && this.isGasStation(msg.sender)) {
             // At this point we know that the sender is a trusted forwarder,
             // so we trust that the last bytes of msg.data are the verified sender address.
             // extract sender address from the end of msg.data
@@ -49,7 +50,7 @@ abstract contract GasStationRecipient is IGasStationRecipient {
      * should be used in the contract instead of msg.data, where this difference matters.
      */
     function _msgData() internal view returns (bytes calldata ret) {
-        if (msg.data.length >= 20 && isGasStation(msg.sender)) {
+        if (msg.data.length >= 20 && this.isGasStation(msg.sender)) {
             return msg.data[0:msg.data.length-20];
         } else {
             return msg.data;
