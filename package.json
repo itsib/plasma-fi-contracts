@@ -1,12 +1,12 @@
 {
-  "name": "@plasma-fi/gas-station-recipient",
-  "version": "1.0.9",
-  "description": "📄 A base contract to be inherited by any contract that want to receive relayed transactions",
+  "name": "@plasma-fi/contracts",
+  "version": "0.0.1",
+  "description": "📄 Common contracts and interfaces for the plasma finance environment",
   "author": "Sergey <itsib.su@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/itsib/gas-station-recipient-contract"
+    "url": "https://github.com/itsib/plasma-fi-contracts"
   },
   "files": [
     "contracts"
