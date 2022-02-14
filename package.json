@@ -1,6 +1,6 @@
 {
   "name": "@plasma-fi/contracts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "📄 Common contracts and interfaces for the plasma finance environment",
   "author": "Sergey <itsib.su@gmail.com>",
   "license": "MIT",
