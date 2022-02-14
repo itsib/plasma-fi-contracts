@@ -19,7 +19,9 @@ abstract contract GasStationRecipient is IGasStationRecipient {
     }
 
     function _setGasStation(address newGasStation) internal {
+        require(newGasStation != address(0), "Invalid new gas station address");
         _gasStation = newGasStation;
+        emit GasStationChanged(_gasStation);
     }
 
     /**
