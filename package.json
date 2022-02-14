@@ -9,7 +9,8 @@
     "url": "https://github.com/itsib/plasma-fi-contracts"
   },
   "files": [
-    "contracts"
+    "interfaces",
+    "utils"
   ],
   "scripts": {
     "bump": "./node_modules/.bin/bump --tag --push --all"
