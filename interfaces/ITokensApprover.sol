@@ -16,11 +16,18 @@ interface ITokensApprover {
         bytes4 permitMethodSelector;
     }
 
+    event TokensApproverConfigAdded(uint256 indexed id);
+    event TokensApproverConfigUpdated(uint256 indexed id);
+    event TokensApproverTokenAdded(address indexed token, uint256 id);
+    event TokensApproverTokenRemoved(address indexed token);
+
     function addConfig(ApproveConfig calldata config) external returns (uint256);
 
-    function setConfig(uint256 id, ApproveConfig calldata config) external returns (uint256);
+    function updateConfig(uint256 id, ApproveConfig calldata config) external returns (uint256);
 
     function setToken(uint256 id, address token) external;
+
+    function removeToken(address token) external;
 
     function getConfig(address token) view external returns (ApproveConfig memory);
 
